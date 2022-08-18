@@ -6,9 +6,7 @@ function solicitarAlumno() {
   let SegCuatri = parseInt (prompt("Ingrese nota del segundo cuatrimestre"));
   let TerCuatri = parseInt (prompt("Ingrese nota del tercer cuatrimestre"));
 
-  
-
-
+  document.getElementById("llamas").innerHTML = nombre;
 
   let promedio = (esNotaValida(PriCuatri, "primer")+  esNotaValida(SegCuatri, "segundo")+  esNotaValida(TerCuatri, "tercero")) / 3 ;
 
@@ -17,13 +15,18 @@ function solicitarAlumno() {
   if ((promedio) > 6) { 
     alert("El alumno " + nombre + " se encuentra aprobado (" + promedio + ").");
     alumno.estaAprobado = true;
+    document.getElementById("aprobado").innerHTML = "✓";
+    document.getElementById("desaprobado").innerHTML = "";
   }
   else {
     alert("El alumno "+ nombre + " se encuentra desaprobado (" + promedio + ").");
     alumno.estaAprobado = false;
+    document.getElementById("desaprobado").innerHTML = "X";
+    document.getElementById("aprobado").innerHTML = "";
   }
 
   alumnosRegistrados.push(alumno);
+
 }
 
 function esNotaValida(unaNota, cuatrimestre) {
@@ -33,8 +36,9 @@ function esNotaValida(unaNota, cuatrimestre) {
     );
   }
   return parseInt(unaNota);
-}
 
+
+}
 
 function CrearAlumno (nombreAlumno,promedioAlumno){
 
@@ -45,9 +49,6 @@ function CrearAlumno (nombreAlumno,promedioAlumno){
   }
   return alumno;
 };
-
-solicitarAlumno();
-solicitarAlumno();
 
 function obtenerAlumnosAprobados (ListaAlumnos) {
   const aprobados = ListaAlumnos.filter(item => item.estaAprobado === true );
@@ -61,4 +62,6 @@ console.log('Alumnos aprobados: ',obtenerAlumnosAprobados(alumnosRegistrados));
 console.log('Alumnos desaprobados: ',obtenerAlumnosDesaprobados(alumnosRegistrados));
 console.log('Alumnos registrados: ',alumnosRegistrados);
 
+let boton = document.getElementById("boton");
+boton.addEventListener("click",solicitarAlumno);
 
