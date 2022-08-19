@@ -1,31 +1,71 @@
 let alumnosRegistrados = [];
 
+
+
+function pintarAlumnos(alumnos){
+
+  document.getElementById("table__body").innerHTML = "";
+  
+  for (let i = 0; i < alumnos.length; i++) {
+    const alumno = alumnos[i];
+    console.log(alumno);
+
+    const tableRow = document.createElement("tr");
+    const rowH = document.createElement("th");
+    const rowName = document.createElement('td');
+    const rowAprobado = document.createElement('td');
+    const rowDesaprobado = document.createElement('td');
+    const rowPromedio = document.createElement('td');
+
+    rowH.innerHTML =i +  1; 
+    rowName.innerHTML = alumno.firstName; 
+    rowPromedio.innerHTML = alumno.promedioalumno;
+    alumno.estaAprobado ? rowAprobado.innerHTML = "✓" : rowDesaprobado.innerHTML = "X"; 
+
+    rowH.setAttribute("scope", "row");
+    rowH.classList.add('text-center');
+    rowName.classList.add('text-center','llamas');
+    rowAprobado.classList.add('text-center','aprobado');
+    rowDesaprobado.classList.add('text-center','desaprobado');
+    alumno.promedioalumno < 7 ? rowPromedio.classList.add('text-center','promedioB'): rowPromedio.classList.add('text-center','promedioA');
+   
+    tableRow.appendChild(rowH);
+    tableRow.appendChild(rowName);
+    tableRow.appendChild(rowAprobado);
+    tableRow.appendChild(rowDesaprobado);
+    tableRow.appendChild(rowPromedio);
+
+    document.getElementById("table__body").appendChild(tableRow);
+  }
+}
+
+
+
 function solicitarAlumno() {
   let nombre = prompt("Ingresar nombre y apellido");
   let PriCuatri = parseInt (prompt("Ingrese nota del primer cuatrimestre"));
   let SegCuatri = parseInt (prompt("Ingrese nota del segundo cuatrimestre"));
   let TerCuatri = parseInt (prompt("Ingrese nota del tercer cuatrimestre"));
 
-  document.getElementById("llamas").innerHTML = nombre;
 
   let promedio = (esNotaValida(PriCuatri, "primer")+  esNotaValida(SegCuatri, "segundo")+  esNotaValida(TerCuatri, "tercero")) / 3 ;
 
   alumno = CrearAlumno(nombre, promedio);
   
-  if ((promedio) > 6) { 
+  if ((promedio) >= 7) { 
     alert("El alumno " + nombre + " se encuentra aprobado (" + promedio + ").");
     alumno.estaAprobado = true;
-    document.getElementById("aprobado").innerHTML = "✓";
-    document.getElementById("desaprobado").innerHTML = "";
+
+
   }
   else {
     alert("El alumno "+ nombre + " se encuentra desaprobado (" + promedio + ").");
     alumno.estaAprobado = false;
-    document.getElementById("desaprobado").innerHTML = "X";
-    document.getElementById("aprobado").innerHTML = "";
+
   }
 
   alumnosRegistrados.push(alumno);
+  pintarAlumnos(alumnosRegistrados);
 
 }
 

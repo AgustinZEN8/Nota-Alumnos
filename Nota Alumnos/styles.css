@@ -28,35 +28,32 @@ body #tabla fieldset .barra {
   font-weight: 500;
   font-size: 23px;
 }
-body #tabla fieldset #llamas {
+body #tabla fieldset .llamas {
   color: black;
   font-weight: 350;
   font-size: 23px;
 }
-body #tabla fieldset #aprobado {
+body #tabla fieldset .aprobado {
   color: green;
   font-weight: 800;
   font-size: 24px;
 }
-body #tabla fieldset #desaprobado {
+body #tabla fieldset .desaprobado {
   color: red;
   font-weight: bolder;
   font-size: 24px;
 }
-body #tabla fieldset #llamas2 {
-  color: black;
+body #tabla fieldset .promedioA {
+  color: green;
   font-weight: 350;
   font-size: 23px;
-}
-body #tabla fieldset #aprobado2 {
-  color: green;
-  font-weight: 800;
-  font-size: 24px;
-}
-body #tabla fieldset #desaprobado2 {
-  color: red;
   font-weight: bolder;
-  font-size: 24px;
+}
+body #tabla fieldset .promedioB {
+  color: red;
+  font-weight: 350;
+  font-size: 23px;
+  font-weight: bolder;
 }
 body #tabla #boton {
   padding: 0.4%;

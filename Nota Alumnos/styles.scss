@@ -26,35 +26,32 @@ body {
                 font-weight: 500;
                 font-size: 23px;
             }
-            #llamas{
+            .llamas{
                 color: black;
                 font-weight: 350;
                 font-size: 23px;
             }
-            #aprobado{
+            .aprobado{
                 color: green;
                 font-weight: 800;
                 font-size: 24px;
             }
-            #desaprobado{
+            .desaprobado{
                 color: red;
                 font-weight: bolder;
                 font-size: 24px;
             }
-            #llamas2{
-                color: black;
+            .promedioA{
+                color: green;
                 font-weight: 350;
                 font-size: 23px;
-            }
-            #aprobado2{
-                color: green;
-                font-weight: 800;
-                font-size: 24px;
-            }
-            #desaprobado2{
-                color: red;
                 font-weight: bolder;
-                font-size: 24px;
+            }
+            .promedioB{
+                color: red;
+                font-weight: 350;
+                font-size: 23px;
+                font-weight: bolder;
             }
         }
         #boton{
