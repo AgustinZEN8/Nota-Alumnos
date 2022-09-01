@@ -16,7 +16,7 @@ function pintarAlumnosStorage(){
     rowH.innerHTML = alumno.id; 
     rowName.innerHTML = alumno.firstName; 
     rowPromedio.innerHTML = alumno.promedioalumno;
-    alumno.estaAprobado ? rowAprobado.innerHTML = "✓" : rowDesaprobado.innerHTML = "X"; 
+    rowPromedio.innerHTML >= 7 ? rowAprobado.innerHTML = "✓" : rowDesaprobado.innerHTML = "X"; 
     
     rowH.setAttribute("scope", "row");
     rowH.classList.add('text-center');
@@ -42,19 +42,22 @@ function solicitarAlumno() {
   let SegCuatri = parseInt(prompt("Ingrese nota del segundo cuatrimestre"));
   let TerCuatri = parseInt(prompt("Ingrese nota del tercer cuatrimestre"));
 
-  let promedio = (esNotaValida(PriCuatri, "primer")+  esNotaValida(SegCuatri, "segundo")+  esNotaValida(TerCuatri, "tercero")) / 3 ;
+  let promedio = Math.floor((esNotaValida(PriCuatri, "primer")+  esNotaValida(SegCuatri, "segundo")+  esNotaValida(TerCuatri, "tercero")) / 3) ;
 
   alumno = CrearAlumno(nombre, promedio);
   
   if ((promedio) >= 7) { 
-    alert("El alumno " + nombre + " se encuentra aprobado (" + promedio + ").");
+    swal ("Aprobado.","El alumno " + nombre + " se encuentra aprobado (" + promedio + ")", "success",{
+      className: "swalaprobado"
+    });
     alumno.estaAprobado = true;
   }
   else {
-    alert("El alumno "+ nombre + " se encuentra desaprobado (" + promedio + ").");
+    swal ("Desaprobado.","El alumno "+ nombre + " se encuentra desaprobado (" + promedio + ")","error",{
+      className: "swaldesaprobado"
+    });
     alumno.estaAprobado = false;
   }
-
 }
 
 function esNotaValida(unaNota, cuatrimestre) {
@@ -79,6 +82,28 @@ function CrearAlumno (nombreAlumno,promedioAlumno){
   return alumno;
 };
 
-let boton = document.getElementById("boton");
+function borrarLista() {
+  swal ("¿Esta seguro de querer borrar la lista actual?",{
+    icon: "warning",
+    buttons: ["Cancelar",true],
+    dangerMode: true,
+  })
+  .then ((borrarTodo) => {
+    if (borrarTodo) {
+      localStorage.clear();
+      pintarAlumnosStorage();
+    } else {
+    swal ("El listado permanecera");
+    }
+  });
+}
+
+let boton = document.getElementById("boton1");
 boton.addEventListener("click",solicitarAlumno);
+
+let borrar = document.getElementById("boton2");
+borrar.addEventListener("click",borrarLista);
+
+
+
 

@@ -55,15 +55,45 @@ body #tabla fieldset .promedioB {
   font-size: 23px;
   font-weight: bolder;
 }
-body #tabla #boton {
+body #tabla .botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+body #tabla .botones #boton1 {
   padding: 0.4%;
   margin: 10px;
   font-weight: bolder;
   font-size: 20px;
-  margin-left: 90%;
-  display: flex;
-  flex: nowrap;
   color: rgb(39, 39, 39);
   border-radius: 7px;
   border: rgb(56, 56, 56) 2px solid;
+}
+body #tabla .botones #boton2 {
+  padding: 0.4%;
+  margin: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(39, 39, 39);
+  border-radius: 7px;
+  border: rgb(56, 56, 56) 2px solid;
+}
+body #tabla .swalaprobado .swal-footer {
+  background-color: rgb(245, 248, 250);
+  margin-top: 32px;
+  border-top: 1px solid #E9EEF1;
+  overflow: hidden;
+  background-color: rgb(135, 201, 135);
+}
+body #tabla .swaldesaprobado .swal-footer {
+  background-color: rgb(245, 248, 250);
+  margin-top: 32px;
+  border-top: 1px solid #E9EEF1;
+  overflow: hidden;
+  background-color: rgb(202, 122, 122);
+}
+body #tabla .swal-button {
+  background-color: white;
+  color: black;
+  border: 3px solid rgb(202, 202, 202);
 }/*# sourceMappingURL=styles.css.map */
