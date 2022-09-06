@@ -96,4 +96,18 @@ body #tabla .swal-button {
   background-color: white;
   color: black;
   border: 3px solid rgb(202, 202, 202);
+}
+body .cajagrafico {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+body .cajagrafico #grafico {
+  max-width: 300px;
+  max-height: 300px;
 }/*# sourceMappingURL=styles.css.map */

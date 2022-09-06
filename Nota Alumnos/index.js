@@ -1,4 +1,8 @@
+//Sistema de listado de alumnos//
 pintarAlumnosStorage();
+let arrayAprobados = [];
+let arrayDesaprobados = [];
+crearArray();
 
 function pintarAlumnosStorage(){
   document.getElementById("table__body").innerHTML = "";
@@ -104,6 +108,41 @@ boton.addEventListener("click",solicitarAlumno);
 let borrar = document.getElementById("boton2");
 borrar.addEventListener("click",borrarLista);
 
+///////////////
+// Grafico //
+function crearArray(){
+  for (let i=1; i <= localStorage.length; i++){
+    let objArray = JSON.parse(localStorage.getItem(i));
+    objArray.promedioalumno < 7 ? arrayDesaprobados.push (objArray) : arrayAprobados.push(objArray);
+  }
+}
 
+const $grafico = document.getElementById('grafico');
+const etiquetas = ["Aprobados","Desaprobados"];
+const datosAlumnos = {
+  label : "Alumnos",
+  data : [arrayDesaprobados.length,arrayAprobados.length],
+  backgroundColor : ["rgb(202, 122, 122)","rgb(135, 201, 135)"],
+  borderColor : "rgb(0, 0, 0)",
+  borderWidth : 0,
+};
 
-
+new Chart ($grafico, {
+  type : "pie",
+  data: {
+    labels : etiquetas,
+    datasets: [
+      datosAlumnos,
+    ]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }],
+    },
+  }
+});
+///////////////
