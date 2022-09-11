@@ -19,48 +19,53 @@ body #titulo {
 body #titulo h1 {
   color: black;
 }
-body #tabla fieldset {
+body main {
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+}
+body main #tabla fieldset {
   color: black;
   border: 4px rgb(85, 85, 85) dotted;
 }
-body #tabla fieldset .barra {
+body main #tabla fieldset .barra {
   color: black;
   font-weight: 500;
   font-size: 23px;
 }
-body #tabla fieldset .llamas {
+body main #tabla fieldset .llamas {
   color: black;
   font-weight: 350;
   font-size: 23px;
 }
-body #tabla fieldset .aprobado {
+body main #tabla fieldset .aprobado {
   color: green;
   font-weight: 800;
   font-size: 24px;
 }
-body #tabla fieldset .desaprobado {
+body main #tabla fieldset .desaprobado {
   color: red;
   font-weight: bolder;
   font-size: 24px;
 }
-body #tabla fieldset .promedioA {
+body main #tabla fieldset .promedioA {
   color: green;
   font-weight: 350;
   font-size: 23px;
   font-weight: bolder;
 }
-body #tabla fieldset .promedioB {
+body main #tabla fieldset .promedioB {
   color: red;
   font-weight: 350;
   font-size: 23px;
   font-weight: bolder;
 }
-body #tabla .botones {
+body main #tabla .botones {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
-body #tabla .botones #boton1 {
+body main #tabla .botones #boton1 {
   padding: 0.4%;
   margin: 10px;
   font-weight: bolder;
@@ -69,7 +74,7 @@ body #tabla .botones #boton1 {
   border-radius: 7px;
   border: rgb(56, 56, 56) 2px solid;
 }
-body #tabla .botones #boton2 {
+body main #tabla .botones #boton2 {
   padding: 0.4%;
   margin: 10px;
   font-weight: bolder;
@@ -78,36 +83,31 @@ body #tabla .botones #boton2 {
   border-radius: 7px;
   border: rgb(56, 56, 56) 2px solid;
 }
-body #tabla .swalaprobado .swal-footer {
+body main #tabla .botones #boton3 {
+  padding: 0.4%;
+  margin: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(39, 39, 39);
+  border-radius: 7px;
+  border: rgb(56, 56, 56) 2px solid;
+}
+body main #tabla .swalaprobado .swal-footer {
   background-color: rgb(245, 248, 250);
   margin-top: 32px;
   border-top: 1px solid #E9EEF1;
   overflow: hidden;
   background-color: rgb(135, 201, 135);
 }
-body #tabla .swaldesaprobado .swal-footer {
+body main #tabla .swaldesaprobado .swal-footer {
   background-color: rgb(245, 248, 250);
   margin-top: 32px;
   border-top: 1px solid #E9EEF1;
   overflow: hidden;
   background-color: rgb(202, 122, 122);
 }
-body #tabla .swal-button {
+body main #tabla .swal-button {
   background-color: white;
   color: black;
   border: 3px solid rgb(202, 202, 202);
-}
-body .cajagrafico {
-  background-color: rgb(255, 255, 255);
-  border-radius: 10%;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  max-height: -webkit-fit-content;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
-}
-body .cajagrafico #grafico {
-  max-width: 300px;
-  max-height: 300px;
 }/*# sourceMappingURL=styles.css.map */

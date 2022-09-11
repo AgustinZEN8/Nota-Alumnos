@@ -1,14 +1,17 @@
 //Sistema de listado de alumnos//
-pintarAlumnosStorage();
+
+pintarAlumnosStorage(localStorage, true);
 let arrayAprobados = [];
 let arrayDesaprobados = [];
-crearArray();
+const alumnosPrecargados = [];
 
-function pintarAlumnosStorage(){
+
+function pintarAlumnosStorage(arrayDeAlumnos, isLocalStorage){
   document.getElementById("table__body").innerHTML = "";
-  
-  for (let i=1; i <= localStorage.length; i++){
-    const alumno = JSON.parse(localStorage.getItem(i));
+
+  for (let i = 1; i <= arrayDeAlumnos.length; i++){
+    let alumno;
+    isLocalStorage ? alumno = JSON.parse(localStorage.getItem(i)) : alumno = arrayDeAlumnos[i-1]; 
 
     const tableRow = document.createElement("tr");
     const rowH = document.createElement("th");
@@ -82,7 +85,7 @@ function CrearAlumno (nombreAlumno,promedioAlumno){
     estaAprobado: false,
   } 
   localStorage.setItem(alumno.id,JSON.stringify(alumno));
-  pintarAlumnosStorage();
+  pintarAlumnosStorage(localStorage,true);
   return alumno;
 };
 
@@ -95,12 +98,21 @@ function borrarLista() {
   .then ((borrarTodo) => {
     if (borrarTodo) {
       localStorage.clear();
-      pintarAlumnosStorage();
+      pintarAlumnosStorage(localStorage,true);
     } else {
     swal ("El listado permanecera");
     }
   });
 }
+
+
+
+function data (){
+fetch ('/Nota Alumnos/alumnos.JSON')
+.then((response) => response.json())
+.then((result) => pintarAlumnosStorage(result.alumnos,false))};
+
+
 
 let boton = document.getElementById("boton1");
 boton.addEventListener("click",solicitarAlumno);
@@ -108,41 +120,7 @@ boton.addEventListener("click",solicitarAlumno);
 let borrar = document.getElementById("boton2");
 borrar.addEventListener("click",borrarLista);
 
-///////////////
-// Grafico //
-function crearArray(){
-  for (let i=1; i <= localStorage.length; i++){
-    let objArray = JSON.parse(localStorage.getItem(i));
-    objArray.promedioalumno < 7 ? arrayDesaprobados.push (objArray) : arrayAprobados.push(objArray);
-  }
-}
+let cargar = document.getElementById("boton3");
+cargar.addEventListener("click", async() => {data()});
 
-const $grafico = document.getElementById('grafico');
-const etiquetas = ["Aprobados","Desaprobados"];
-const datosAlumnos = {
-  label : "Alumnos",
-  data : [arrayDesaprobados.length,arrayAprobados.length],
-  backgroundColor : ["rgb(202, 122, 122)","rgb(135, 201, 135)"],
-  borderColor : "rgb(0, 0, 0)",
-  borderWidth : 0,
-};
 
-new Chart ($grafico, {
-  type : "pie",
-  data: {
-    labels : etiquetas,
-    datasets: [
-      datosAlumnos,
-    ]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }],
-    },
-  }
-});
-///////////////

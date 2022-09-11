@@ -1,0 +1,52 @@
+{
+    "alumnos": [
+        {
+            "id": 1,
+            "firstName": "Schumacher",
+            "promedioalumno": 7,
+            "estaAprobado": false
+        },
+        {
+            "id": 2,
+            "firstName": "Scorsese",
+            "promedioalumno": 8,
+            "estaAprobado": false
+        },
+        {
+            "id": 3,
+            "firstName": "Rollins",
+            "promedioalumno": 7,
+            "estaAprobado": false
+        },
+        {
+            "id": 4,
+            "firstName": "Jackson",
+            "promedioalumno": 10,
+            "estaAprobado": false
+        },
+        {
+            "id": 5,
+            "firstName": "Elizabeth",
+            "promedioalumno": 9,
+            "estaAprobado": false
+        },
+        {
+            "id": 6,
+            "firstName": "Maradona",
+            "promedioalumno": 10,
+            "estaAprobado": false
+        },
+        {
+            "id": 7,
+            "firstName": "Fort",
+            "promedioalumno": 7,
+            "estaAprobado": false
+        },
+        {
+            "id": 8,
+            "firstName": "Ferrari",
+            "promedioalumno": 6,
+            "estaAprobado": false
+        }
+    ]
+}
